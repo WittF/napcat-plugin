@@ -1,0 +1,5 @@
+# Legacy Koishi plugins (archived, read-only)
+koishi-old-plugin/
+
+# Temporary files
+tmp/
