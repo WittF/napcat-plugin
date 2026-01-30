@@ -1,0 +1,86 @@
+name: Build and Release Plugin
+
+on:
+  push:
+    tags:
+      - '*/v*'  # 匹配 plugin-name/v1.0.0 格式
+  workflow_dispatch:
+    inputs:
+      plugin_path:
+        description: 'Plugin directory name'
+        required: true
+        type: string
+      version:
+        description: 'Version (without v prefix)'
+        required: true
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Determine plugin info
+        id: plugin
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            PLUGIN_PATH="${{ inputs.plugin_path }}"
+            VERSION="v${{ inputs.version }}"
+          else
+            # 从 tag 解析：plugin-name/v1.0.0
+            TAG="${{ github.ref_name }}"
+            PLUGIN_PATH="${TAG%/v*}"
+            VERSION="${TAG#*/}"
+          fi
+          echo "path=$PLUGIN_PATH" >> $GITHUB_OUTPUT
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "name=$(jq -r .name $PLUGIN_PATH/package.json)" >> $GITHUB_OUTPUT
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: ${{ steps.plugin.outputs.path }}/package-lock.json
+
+      - name: Install dependencies
+        working-directory: ${{ steps.plugin.outputs.path }}
+        run: npm ci
+
+      - name: Lint
+        working-directory: ${{ steps.plugin.outputs.path }}
+        run: npm run lint --if-present
+
+      - name: Test
+        working-directory: ${{ steps.plugin.outputs.path }}
+        run: npm run test --if-present
+
+      - name: Build
+        working-directory: ${{ steps.plugin.outputs.path }}
+        run: npm run build
+
+      - name: Package
+        working-directory: ${{ steps.plugin.outputs.path }}
+        run: |
+          PLUGIN_NAME="${{ steps.plugin.outputs.name }}"
+          mkdir -p dist-package
+          cp package.json dist-package/
+          cp index.mjs dist-package/ 2>/dev/null || cp dist/index.mjs dist-package/
+          [ -d webui ] && cp -r webui dist-package/
+          cd dist-package && zip -r "../${PLUGIN_NAME}.zip" .
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.plugin.outputs.name }}
+          path: ${{ steps.plugin.outputs.path }}/${{ steps.plugin.outputs.name }}.zip
+
+      - name: Create Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ steps.plugin.outputs.path }}/${{ steps.plugin.outputs.name }}.zip
+          name: ${{ steps.plugin.outputs.name }} ${{ steps.plugin.outputs.version }}
+          generate_release_notes: true

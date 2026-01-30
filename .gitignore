@@ -1,3 +1,15 @@
+# Dependencies
+**/node_modules/
+
+# Root package files (prevent accidental npm install in root)
+/package.json
+/package-lock.json
+
+# Build output
+**/dist/
+**/dist-package/
+*.zip
+
 # Legacy Koishi plugins (archived, read-only)
 koishi-old-plugin/
 
