@@ -1,0 +1,22 @@
+import { QQVersionConfigType, QQLevel } from './types';
+export { compareSemVer } from './version';
+export declare function solveProblem<T extends (...arg: any[]) => any>(func: T, ...args: Parameters<T>): Promise<ReturnType<T> | undefined>;
+export declare function solveAsyncProblem<T extends (...args: any[]) => Promise<any>>(func: T, ...args: Parameters<T>): Promise<Awaited<ReturnType<T>> | undefined>;
+export declare function sleep(ms: number): Promise<void>;
+export declare function PromiseTimer<T>(promise: Promise<T>, ms: number): Promise<T>;
+export declare function runAllWithTimeout<T>(tasks: Promise<T>[], timeout: number): Promise<T[]>;
+export declare function isNull(value: any): boolean;
+export declare function isNumeric(str: string): boolean;
+export declare function truncateString(obj: any, maxLength?: number): any;
+export declare function isEqual(obj1: any, obj2: any): boolean;
+export declare function getDefaultQQVersionConfigInfo(): QQVersionConfigType;
+export declare function getQQPackageInfoPath(exePath?: string, version?: string): string;
+export declare function getQQVersionConfigPath(exePath?: string): string | undefined;
+export declare function calcQQLevel(level?: QQLevel): number;
+export declare function stringifyWithBigInt(obj: any): string;
+export declare function parseAppidFromMajor(nodeMajor: string): string | undefined;
+export declare function getAllTags(mirror?: string): Promise<{
+    tags: string[];
+    mirror: string;
+}>;
+export declare function getLatestTag(mirror?: string): Promise<string>;

@@ -1,0 +1,31 @@
+import { FileElement, GrayTipElement, InstanceContext, MessageElement, NapCatCore, RawMessage, TipGroupElement } from '../../napcat-core';
+import { OB11GroupBanEvent } from '../event/notice/OB11GroupBanEvent';
+import { OB11GroupMsgEmojiLikeEvent } from '../event/notice/OB11MsgEmojiLikeEvent';
+import { OB11GroupCardEvent } from '../event/notice/OB11GroupCardEvent';
+import { OB11GroupPokeEvent } from '../event/notice/OB11PokeEvent';
+import { OB11GroupEssenceEvent } from '../event/notice/OB11GroupEssenceEvent';
+import { OB11GroupTitleEvent } from '../event/notice/OB11GroupTitleEvent';
+import { OB11GroupGrayTipEvent } from '../event/notice/OB11GroupGrayTipEvent';
+import { OB11GroupUploadNoticeEvent } from '../event/notice/OB11GroupUploadNoticeEvent';
+import { OB11GroupNameEvent } from '../event/notice/OB11GroupNameEvent';
+import { OB11GroupIncreaseEvent } from '../event/notice/OB11GroupIncreaseEvent';
+import { NapCatOneBot11Adapter } from '..';
+export declare class OneBotGroupApi {
+    obContext: NapCatOneBot11Adapter;
+    core: NapCatCore;
+    constructor(obContext: NapCatOneBot11Adapter, core: NapCatCore);
+    parseGroupBanEvent(GroupCode: string, grayTipElement: GrayTipElement): Promise<OB11GroupBanEvent | undefined>;
+    parseGroupEmojiLikeEventByGrayTip(groupCode: string, grayTipElement: GrayTipElement): Promise<OB11GroupMsgEmojiLikeEvent | undefined>;
+    createGroupEmojiLikeEvent(groupCode: string, senderUin: string, msgSeq: string, emojiId: string, isAdd?: boolean, count?: number): Promise<OB11GroupMsgEmojiLikeEvent | undefined>;
+    parseCardChangedEvent(msg: RawMessage): Promise<OB11GroupCardEvent | undefined>;
+    registerParseGroupReactEvent(): Promise<void>;
+    registerParseGroupReactEventByCore(): Promise<void>;
+    parsePaiYiPai(msg: RawMessage, jsonStr: string): Promise<OB11GroupPokeEvent | undefined>;
+    parseOtherJsonEvent(msg: RawMessage, jsonGrayTipElement: GrayTipElement['jsonGrayTipElement'], context: InstanceContext): Promise<OB11GroupTitleEvent | OB11GroupGrayTipEvent | undefined>;
+    parseEssenceMsg(msg: RawMessage, jsonStr: string): Promise<OB11GroupEssenceEvent | undefined>;
+    parseGroupUploadFileEvene(msg: RawMessage, element: FileElement, elementWrapper: MessageElement): Promise<OB11GroupUploadNoticeEvent>;
+    parseGroupElement(msg: RawMessage, element: TipGroupElement, elementWrapper: GrayTipElement): Promise<OB11GroupBanEvent | OB11GroupNameEvent | OB11GroupIncreaseEvent | undefined>;
+    parseSelfInviteEvent(msg: RawMessage, inviterUin: string, inviteeUin: string): Promise<OB11GroupIncreaseEvent>;
+    parse51TypeEvent(msg: RawMessage, grayTipElement: GrayTipElement): Promise<OB11GroupIncreaseEvent | undefined>;
+    parseGrayTipElement(msg: RawMessage, grayTipElement: GrayTipElement): Promise<OB11GroupPokeEvent | OB11GroupBanEvent | OB11GroupMsgEmojiLikeEvent | OB11GroupEssenceEvent | OB11GroupTitleEvent | OB11GroupGrayTipEvent | OB11GroupNameEvent | OB11GroupIncreaseEvent | undefined>;
+}
