@@ -26,7 +26,7 @@ declare const ReturnSchema: import("@sinclair/typebox").TArray<import("@sinclair
 type ReturnType = Static<typeof ReturnSchema>;
 export declare class GetFriendWithCategory extends OneBotAction<void, ReturnType> {
     actionName: "get_friends_with_category";
-    payloadSchema: import("@sinclair/typebox").TVoid;
+    payloadSchema: import("@sinclair/typebox").TObject<{}>;
     returnSchema: import("@sinclair/typebox").TArray<import("@sinclair/typebox").TObject<{
         categoryId: import("@sinclair/typebox").TNumber;
         categoryName: import("@sinclair/typebox").TString;

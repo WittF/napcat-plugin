@@ -7,6 +7,7 @@ import { AIVoiceChatType } from '../../packet/entities/aiChat';
 import { IndexNode, MsgInfo, PushMsgBody } from '../../packet/transformer/proto';
 import { OidbPacket } from '../../packet/transformer/base';
 import { ImageOcrResult } from '../../packet/entities/ocrResult';
+import { UploadForwardMsgParams } from '../../packet/transformer/message/UploadForwardMsgV2';
 export declare class PacketOperationContext {
     private readonly context;
     constructor(context: PacketContext);
@@ -38,6 +39,7 @@ export declare class PacketOperationContext {
     FetchGroupMessage(groupUin: number, startSeq: number, endSeq: number): Promise<any[]>;
     FetchC2CMessage(targetUid: string, startSeq: number, endSeq: number): Promise<any[]>;
     UploadForwardMsg(msg: PacketMsg[], groupUin?: number): Promise<string>;
+    UploadForwardMsgV2(msg: UploadForwardMsgParams[], groupUin?: number): Promise<string>;
     MoveGroupFile(groupUin: number, fileUUID: string, currentParentDirectory: string, targetParentDirectory: string): Promise<number>;
     RenameGroupFile(groupUin: number, fileUUID: string, currentParentDirectory: string, newName: string): Promise<number>;
     GetGroupFileUrl(groupUin: number, fileUUID: string, timeout?: number): Promise<string>;
