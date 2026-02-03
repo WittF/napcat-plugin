@@ -18,6 +18,7 @@ export { PluginModule } from './plugin/types';
 export { PluginStatusConfig } from './plugin/types';
 export { PluginRouterRegistry, PluginRequestHandler, PluginApiRouteDefinition, PluginPageDefinition, HttpMethod } from './plugin/types';
 export { PluginHttpRequest, PluginHttpResponse, PluginNextFunction } from './plugin/types';
+export { MemoryStaticFile, MemoryFileGenerator } from './plugin/types';
 export { PluginRouterRegistryImpl } from './plugin/router-registry';
 export declare class OB11PluginMangerAdapter extends IOB11NetworkAdapter<PluginConfig> implements IPluginManager {
     private readonly pluginPath;

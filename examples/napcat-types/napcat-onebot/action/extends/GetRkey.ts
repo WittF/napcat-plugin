@@ -4,7 +4,7 @@ declare const ReturnSchema: import("@sinclair/typebox").TArray<import("@sinclair
 type ReturnType = Static<typeof ReturnSchema>;
 export declare class GetRkey extends GetPacketStatusDepends<void, ReturnType> {
     actionName: "nc_get_rkey";
-    payloadSchema: import("@sinclair/typebox").TVoid;
+    payloadSchema: import("@sinclair/typebox").TObject<{}>;
     returnSchema: import("@sinclair/typebox").TArray<import("@sinclair/typebox").TAny>;
     actionSummary: string;
     actionTags: string[];
