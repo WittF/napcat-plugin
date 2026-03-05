@@ -10,10 +10,10 @@ export interface NodeIKernelFlashTransferService {
         createFlashTransferResult: createFlashTransferResult;
         seq: number;
     }>;
-    createMergeShareTask(...args: unknown[]): unknown;
-    updateFlashTransfer(...args: unknown[]): unknown;
-    getFileSetList(...args: unknown[]): unknown;
-    getFileSetListCount(...args: unknown[]): unknown;
+    createMergeShareTask(arg1: unknown, arg2: unknown): unknown;
+    updateFlashTransfer(arg1: unknown, arg2: unknown): unknown;
+    getFileSetList(arg: unknown): unknown;
+    getFileSetListCount(arg: unknown): unknown;
     /**
      * 获取file set 的信息
      * @param fileSetIdDict
@@ -30,9 +30,9 @@ export interface NodeIKernelFlashTransferService {
     getFileList(requestArgs: FileListInfoRequests): Promise<{
         rsp: FileListResponse;
     }>;
-    getDownloadedFileCount(...args: unknown[]): unknown;
-    getLocalFileList(...args: unknown[]): unknown;
-    batchRemoveUserFileSetHistory(...args: unknown[]): unknown;
+    getDownloadedFileCount(arg: unknown): unknown;
+    getLocalFileList(arg1: number, arg2: string, arg3: Array<unknown>[]): unknown;
+    batchRemoveUserFileSetHistory(arg: unknown): unknown;
     /**
      * 获取分享链接
      * @param fileSetId
@@ -48,20 +48,20 @@ export interface NodeIKernelFlashTransferService {
     getFileSetIdByCode(shareCode: string): Promise<GeneralCallResult & {
         fileSetId: string;
     }>;
-    batchRemoveFile(...args: unknown[]): unknown;
-    checkUploadPathValid(...args: unknown[]): unknown;
-    cleanFailedFiles(...args: unknown[]): unknown;
+    batchRemoveFile(arg: unknown): unknown;
+    checkUploadPathValid(arg: unknown): unknown;
+    cleanFailedFiles(arg1: number, arg2: Array<unknown>[]): unknown;
     /**
      * 暂停所有的任务
      */
     resumeAllUnfinishedTasks(): unknown;
-    addFileSetUploadListener(...args: unknown[]): unknown;
-    removeFileSetUploadListener(...args: unknown[]): unknown;
+    addFileSetUploadListener(listener: unknown): unknown;
+    removeFileSetUploadListener(listenerId: unknown): unknown;
     /**
      * 开始上传任务  适用于已暂停的
      * @param fileSetId
      */
-    startFileSetUpload(fileSetId: string): void;
+    startFileSetUpload(fileSetId: unknown): void;
     /**
      * 结束，无法再次启动
      * @param fileSetId
@@ -76,17 +76,17 @@ export interface NodeIKernelFlashTransferService {
      * 继续上传
      * @param args
      */
-    resumeFileSetUpload(...args: unknown[]): unknown;
-    pauseFileUpload(...args: unknown[]): unknown;
-    resumeFileUpload(...args: unknown[]): unknown;
-    stopFileUpload(...args: unknown[]): unknown;
-    asyncGetThumbnailPath(...args: unknown[]): unknown;
-    setDownLoadDefaultFileDir(...args: unknown[]): unknown;
-    setFileSetDownloadDir(...args: unknown[]): unknown;
-    getFileSetDownloadDir(...args: unknown[]): unknown;
-    setFlashTransferDir(...args: unknown[]): unknown;
-    addFileSetDownloadListener(...args: unknown[]): unknown;
-    removeFileSetDownloadListener(...args: unknown[]): unknown;
+    resumeFileSetUpload(fileSetId: unknown): unknown;
+    pauseFileUpload(arg: unknown): unknown;
+    resumeFileUpload(arg: unknown): unknown;
+    stopFileUpload(arg: unknown): unknown;
+    asyncGetThumbnailPath(arg1: unknown, arg2: unknown): unknown;
+    setDownLoadDefaultFileDir(dir: unknown): unknown;
+    setFileSetDownloadDir(arg1: unknown, arg2: unknown): unknown;
+    getFileSetDownloadDir(arg: unknown): unknown;
+    setFlashTransferDir(arg1: unknown, arg2: unknown): unknown;
+    addFileSetDownloadListener(listener: unknown): unknown;
+    removeFileSetDownloadListener(listenerId: unknown): unknown;
     /**
      * 开始下载file set的函数  同开始上传
      * @param fileSetId
@@ -113,10 +113,10 @@ export interface NodeIKernelFlashTransferService {
     }): Promise<GeneralCallResult & {
         extraInfo: 0;
     }>;
-    startFileListDownLoad(...args: unknown[]): unknown;
-    pauseFileListDownLoad(...args: unknown[]): unknown;
-    resumeFileListDownLoad(...args: unknown[]): unknown;
-    stopFileListDownLoad(...args: unknown[]): unknown;
+    startFileListDownLoad(arg1: string, arg2: number, arg3: Array<unknown>[], arg4: unknown): unknown;
+    pauseFileListDownLoad(arg1: unknown, arg2: unknown): unknown;
+    resumeFileListDownLoad(arg1: unknown, arg2: unknown): unknown;
+    stopFileListDownLoad(arg1: unknown, arg2: unknown): unknown;
     startThumbnailListDownload(fileSetId: string): Promise<GeneralCallResult>;
     stopThumbnailListDownload(fileSetId: string): Promise<GeneralCallResult>;
     asyncRequestDownLoadStatus(fileSetId: string): Promise<DownloadStatusInfo>;
@@ -125,19 +125,19 @@ export interface NodeIKernelFlashTransferService {
         url: string;
         expireTimestampSeconds: string;
     }>;
-    startFileListDownLoadBySessionId(...args: unknown[]): unknown;
-    addFileSetSimpleStatusListener(...args: unknown[]): unknown;
-    addFileSetSimpleStatusMonitoring(...args: unknown[]): unknown;
-    removeFileSetSimpleStatusMonitoring(...args: unknown[]): unknown;
-    removeFileSetSimpleStatusListener(...args: unknown[]): unknown;
-    addDesktopFileSetSimpleStatusListener(...args: unknown[]): unknown;
-    addDesktopFileSetSimpleStatusMonitoring(...args: unknown[]): unknown;
-    removeDesktopFileSetSimpleStatusMonitoring(...args: unknown[]): unknown;
-    removeDesktopFileSetSimpleStatusListener(...args: unknown[]): unknown;
-    addFileSetSimpleUploadInfoListener(...args: unknown[]): unknown;
-    addFileSetSimpleUploadInfoMonitoring(...args: unknown[]): unknown;
-    removeFileSetSimpleUploadInfoMonitoring(...args: unknown[]): unknown;
-    removeFileSetSimpleUploadInfoListener(...args: unknown[]): unknown;
+    startFileListDownLoadBySessionId(arg1: unknown, arg2: unknown): unknown;
+    addFileSetSimpleStatusListener(arg1: unknown, arg2: unknown): unknown;
+    addFileSetSimpleStatusMonitoring(arg1: unknown, arg2: unknown): unknown;
+    removeFileSetSimpleStatusMonitoring(arg1: unknown, arg2: unknown): unknown;
+    removeFileSetSimpleStatusListener(arg: unknown): unknown;
+    addDesktopFileSetSimpleStatusListener(arg: unknown): unknown;
+    addDesktopFileSetSimpleStatusMonitoring(arg: unknown): unknown;
+    removeDesktopFileSetSimpleStatusMonitoring(arg: unknown): unknown;
+    removeDesktopFileSetSimpleStatusListener(arg: unknown): unknown;
+    addFileSetSimpleUploadInfoListener(arg: unknown): unknown;
+    addFileSetSimpleUploadInfoMonitoring(arg: unknown): unknown;
+    removeFileSetSimpleUploadInfoMonitoring(arg: unknown): unknown;
+    removeFileSetSimpleUploadInfoListener(arg: unknown): unknown;
     /**
      * 发送闪传消息
      * @param sendArgs
@@ -149,8 +149,8 @@ export interface NodeIKernelFlashTransferService {
             sendStatus: SendStatus[];
         };
     }>;
-    addFlashTransferTaskInfoListener(...args: unknown[]): unknown;
-    removeFlashTransferTaskInfoListener(...args: unknown[]): unknown;
+    addFlashTransferTaskInfoListener(listener: unknown): unknown;
+    removeFlashTransferTaskInfoListener(listenerId: unknown): unknown;
     retrieveLocalLastFailedSetTasksInfo(): unknown;
     getFailedFileList(fileSetId: string): Promise<{
         rsp: {
@@ -161,41 +161,41 @@ export interface NodeIKernelFlashTransferService {
             fileList: [];
         };
     }>;
-    getLocalFileListByStatuses(...args: unknown[]): unknown;
-    addTransferStateListener(...args: unknown[]): unknown;
-    removeTransferStateListener(...args: unknown[]): unknown;
-    getFileSetFirstClusteringList(...args: unknown[]): unknown;
-    getFileSetClusteringList(...args: unknown[]): unknown;
-    addFileSetClusteringListListener(...args: unknown[]): unknown;
-    removeFileSetClusteringListListener(...args: unknown[]): unknown;
-    getFileSetClusteringDetail(...args: unknown[]): unknown;
-    doAIOFlashTransferBubbleActionWithStatus(...args: unknown[]): unknown;
-    getFilesTransferProgress(...args: unknown[]): unknown;
-    pollFilesTransferProgress(...args: unknown[]): unknown;
-    cancelPollFilesTransferProgress(...args: unknown[]): unknown;
-    checkDownloadStatusBeforeLocalFileOper(...args: unknown[]): unknown;
-    getCompressedFileFolder(...args: unknown[]): unknown;
-    addFolderListener(...args: unknown[]): unknown;
-    removeFolderListener(...args: unknown[]): unknown;
-    addCompressedFileListener(...args: unknown[]): unknown;
-    removeCompressedFileListener(...args: unknown[]): unknown;
-    getFileCategoryList(...args: unknown[]): unknown;
-    addDeviceStatusListener(...args: unknown[]): unknown;
-    removeDeviceStatusListener(...args: unknown[]): unknown;
-    checkDeviceStatus(...args: unknown[]): unknown;
-    pauseAllTasks(...args: unknown[]): unknown;
-    resumePausedTasksAfterDeviceStatus(...args: unknown[]): unknown;
-    onSystemGoingToSleep(...args: unknown[]): unknown;
-    onSystemWokeUp(...args: unknown[]): unknown;
-    getFileMetas(...args: unknown[]): unknown;
-    addDownloadCntStatisticsListener(...args: unknown[]): unknown;
-    removeDownloadCntStatisticsListener(...args: unknown[]): unknown;
-    detectPrivacyInfoInPaths(...args: unknown[]): unknown;
-    getFileThumbnailUrl(...args: unknown[]): unknown;
-    handleDownloadFinishAfterSaveToAlbum(...args: unknown[]): unknown;
-    checkBatchFilesDownloadStatus(...args: unknown[]): unknown;
-    onCheckAlbumStorageStatusResult(...args: unknown[]): unknown;
-    addFileAlbumStorageListener(...args: unknown[]): unknown;
-    removeFileAlbumStorageListener(...args: unknown[]): unknown;
-    refreshFolderStatus(...args: unknown[]): unknown;
+    getLocalFileListByStatuses(arg: unknown): unknown;
+    addTransferStateListener(listener: unknown): unknown;
+    removeTransferStateListener(listenerId: unknown): unknown;
+    getFileSetFirstClusteringList(arg1: number, arg2: string, arg3: number): unknown;
+    getFileSetClusteringList(arg: unknown): unknown;
+    addFileSetClusteringListListener(listener: unknown): unknown;
+    removeFileSetClusteringListListener(listenerId: unknown): unknown;
+    getFileSetClusteringDetail(arg: unknown): unknown;
+    doAIOFlashTransferBubbleActionWithStatus(arg1: string, arg2: number, arg3: number, arg4: unknown): unknown;
+    getFilesTransferProgress(arg: unknown): unknown;
+    pollFilesTransferProgress(arg: unknown): unknown;
+    cancelPollFilesTransferProgress(arg: unknown): unknown;
+    checkDownloadStatusBeforeLocalFileOper(arg1: number, arg2: string, arg3: string): unknown;
+    getCompressedFileFolder(arg: unknown): unknown;
+    addFolderListener(listener: unknown): unknown;
+    removeFolderListener(listenerId: unknown): unknown;
+    addCompressedFileListener(listener: unknown): unknown;
+    removeCompressedFileListener(listenerId: unknown): unknown;
+    getFileCategoryList(arg: unknown): unknown;
+    addDeviceStatusListener(listener: unknown): unknown;
+    removeDeviceStatusListener(listenerId: unknown): unknown;
+    checkDeviceStatus(arg: unknown): unknown;
+    pauseAllTasks(arg1: number, arg2: number): unknown;
+    resumePausedTasksAfterDeviceStatus(arg: unknown): unknown;
+    onSystemGoingToSleep(arg: unknown): unknown;
+    onSystemWokeUp(arg: unknown): unknown;
+    getFileMetas(arg: unknown): unknown;
+    addDownloadCntStatisticsListener(listener: unknown): unknown;
+    removeDownloadCntStatisticsListener(listenerId: unknown): unknown;
+    detectPrivacyInfoInPaths(arg: unknown): unknown;
+    getFileThumbnailUrl(arg: unknown): unknown;
+    handleDownloadFinishAfterSaveToAlbum(arg: unknown): unknown;
+    checkBatchFilesDownloadStatus(arg: unknown): unknown;
+    onCheckAlbumStorageStatusResult(arg: unknown): unknown;
+    addFileAlbumStorageListener(listener: unknown): unknown;
+    removeFileAlbumStorageListener(listenerId: unknown): unknown;
+    refreshFolderStatus(arg: unknown): unknown;
 }

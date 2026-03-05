@@ -1,12 +1,12 @@
 import { BuddyProfileLikeReq, GeneralCallResult, NTVoteInfo } from '../index';
 export interface NodeIKernelProfileLikeService {
     addKernelProfileLikeListener(listener: unknown): number;
-    removeKernelProfileLikeListener(listenerId: unknown): void;
-    setBuddyProfileLike(...args: unknown[]): {
+    removeKernelProfileLikeListener(listenerId: number): void;
+    setBuddyProfileLike(arg: unknown): Promise<{
         result: number;
         errMsg: string;
         succCounts: number;
-    };
+    }>;
     getBuddyProfileLike(req: BuddyProfileLikeReq): Promise<GeneralCallResult & {
         info: {
             userLikeInfos: Array<{
@@ -30,6 +30,6 @@ export interface NodeIKernelProfileLikeService {
             start: number;
         };
     }>;
-    getProfileLikeScidResourceInfo(...args: unknown[]): void;
+    getProfileLikeScidResourceInfo(arg: unknown): void;
     isNull(): boolean;
 }

@@ -118,6 +118,14 @@ export declare const SendMsgPayloadSchema: import("@sinclair/typebox").TObject<{
             id: import("@sinclair/typebox").TString;
         }>;
     }>, import("@sinclair/typebox").TObject<{
+        type: import("@sinclair/typebox").TLiteral<OB11MessageDataType.location>;
+        data: import("@sinclair/typebox").TObject<{
+            lat: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TString, import("@sinclair/typebox").TNumber]>;
+            lon: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TString, import("@sinclair/typebox").TNumber]>;
+            title: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+            content: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+        }>;
+    }>, import("@sinclair/typebox").TObject<{
         type: import("@sinclair/typebox").TLiteral<OB11MessageDataType.json>;
         data: import("@sinclair/typebox").TObject<{
             data: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TString, import("@sinclair/typebox").TObject<{}>]>;
@@ -126,9 +134,19 @@ export declare const SendMsgPayloadSchema: import("@sinclair/typebox").TObject<{
             }>>;
         }>;
     }>, import("@sinclair/typebox").TObject<{
+        type: import("@sinclair/typebox").TLiteral<OB11MessageDataType.xml>;
+        data: import("@sinclair/typebox").TObject<{
+            data: import("@sinclair/typebox").TString;
+        }>;
+    }>, import("@sinclair/typebox").TObject<{
         type: import("@sinclair/typebox").TLiteral<OB11MessageDataType.markdown>;
         data: import("@sinclair/typebox").TObject<{
             content: import("@sinclair/typebox").TString;
+        }>;
+    }>, import("@sinclair/typebox").TObject<{
+        type: import("@sinclair/typebox").TLiteral<OB11MessageDataType.miniapp>;
+        data: import("@sinclair/typebox").TObject<{
+            data: import("@sinclair/typebox").TString;
         }>;
     }>, import("@sinclair/typebox").TObject<{
         type: import("@sinclair/typebox").TLiteral<OB11MessageDataType.node>;
@@ -278,6 +296,14 @@ export declare const SendMsgPayloadSchema: import("@sinclair/typebox").TObject<{
             id: import("@sinclair/typebox").TString;
         }>;
     }>, import("@sinclair/typebox").TObject<{
+        type: import("@sinclair/typebox").TLiteral<OB11MessageDataType.location>;
+        data: import("@sinclair/typebox").TObject<{
+            lat: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TString, import("@sinclair/typebox").TNumber]>;
+            lon: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TString, import("@sinclair/typebox").TNumber]>;
+            title: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+            content: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+        }>;
+    }>, import("@sinclair/typebox").TObject<{
         type: import("@sinclair/typebox").TLiteral<OB11MessageDataType.json>;
         data: import("@sinclair/typebox").TObject<{
             data: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TString, import("@sinclair/typebox").TObject<{}>]>;
@@ -286,9 +312,19 @@ export declare const SendMsgPayloadSchema: import("@sinclair/typebox").TObject<{
             }>>;
         }>;
     }>, import("@sinclair/typebox").TObject<{
+        type: import("@sinclair/typebox").TLiteral<OB11MessageDataType.xml>;
+        data: import("@sinclair/typebox").TObject<{
+            data: import("@sinclair/typebox").TString;
+        }>;
+    }>, import("@sinclair/typebox").TObject<{
         type: import("@sinclair/typebox").TLiteral<OB11MessageDataType.markdown>;
         data: import("@sinclair/typebox").TObject<{
             content: import("@sinclair/typebox").TString;
+        }>;
+    }>, import("@sinclair/typebox").TObject<{
+        type: import("@sinclair/typebox").TLiteral<OB11MessageDataType.miniapp>;
+        data: import("@sinclair/typebox").TObject<{
+            data: import("@sinclair/typebox").TString;
         }>;
     }>, import("@sinclair/typebox").TObject<{
         type: import("@sinclair/typebox").TLiteral<OB11MessageDataType.node>;
@@ -466,6 +502,14 @@ export declare class SendMsgBase extends OneBotAction<SendMsgPayload, ReturnData
                 id: import("@sinclair/typebox").TString;
             }>;
         }>, import("@sinclair/typebox").TObject<{
+            type: import("@sinclair/typebox").TLiteral<OB11MessageDataType.location>;
+            data: import("@sinclair/typebox").TObject<{
+                lat: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TString, import("@sinclair/typebox").TNumber]>;
+                lon: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TString, import("@sinclair/typebox").TNumber]>;
+                title: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+                content: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+            }>;
+        }>, import("@sinclair/typebox").TObject<{
             type: import("@sinclair/typebox").TLiteral<OB11MessageDataType.json>;
             data: import("@sinclair/typebox").TObject<{
                 data: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TString, import("@sinclair/typebox").TObject<{}>]>;
@@ -474,9 +518,19 @@ export declare class SendMsgBase extends OneBotAction<SendMsgPayload, ReturnData
                 }>>;
             }>;
         }>, import("@sinclair/typebox").TObject<{
+            type: import("@sinclair/typebox").TLiteral<OB11MessageDataType.xml>;
+            data: import("@sinclair/typebox").TObject<{
+                data: import("@sinclair/typebox").TString;
+            }>;
+        }>, import("@sinclair/typebox").TObject<{
             type: import("@sinclair/typebox").TLiteral<OB11MessageDataType.markdown>;
             data: import("@sinclair/typebox").TObject<{
                 content: import("@sinclair/typebox").TString;
+            }>;
+        }>, import("@sinclair/typebox").TObject<{
+            type: import("@sinclair/typebox").TLiteral<OB11MessageDataType.miniapp>;
+            data: import("@sinclair/typebox").TObject<{
+                data: import("@sinclair/typebox").TString;
             }>;
         }>, import("@sinclair/typebox").TObject<{
             type: import("@sinclair/typebox").TLiteral<OB11MessageDataType.node>;
@@ -626,6 +680,14 @@ export declare class SendMsgBase extends OneBotAction<SendMsgPayload, ReturnData
                 id: import("@sinclair/typebox").TString;
             }>;
         }>, import("@sinclair/typebox").TObject<{
+            type: import("@sinclair/typebox").TLiteral<OB11MessageDataType.location>;
+            data: import("@sinclair/typebox").TObject<{
+                lat: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TString, import("@sinclair/typebox").TNumber]>;
+                lon: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TString, import("@sinclair/typebox").TNumber]>;
+                title: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+                content: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+            }>;
+        }>, import("@sinclair/typebox").TObject<{
             type: import("@sinclair/typebox").TLiteral<OB11MessageDataType.json>;
             data: import("@sinclair/typebox").TObject<{
                 data: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TString, import("@sinclair/typebox").TObject<{}>]>;
@@ -634,9 +696,19 @@ export declare class SendMsgBase extends OneBotAction<SendMsgPayload, ReturnData
                 }>>;
             }>;
         }>, import("@sinclair/typebox").TObject<{
+            type: import("@sinclair/typebox").TLiteral<OB11MessageDataType.xml>;
+            data: import("@sinclair/typebox").TObject<{
+                data: import("@sinclair/typebox").TString;
+            }>;
+        }>, import("@sinclair/typebox").TObject<{
             type: import("@sinclair/typebox").TLiteral<OB11MessageDataType.markdown>;
             data: import("@sinclair/typebox").TObject<{
                 content: import("@sinclair/typebox").TString;
+            }>;
+        }>, import("@sinclair/typebox").TObject<{
+            type: import("@sinclair/typebox").TLiteral<OB11MessageDataType.miniapp>;
+            data: import("@sinclair/typebox").TObject<{
+                data: import("@sinclair/typebox").TString;
             }>;
         }>, import("@sinclair/typebox").TObject<{
             type: import("@sinclair/typebox").TLiteral<OB11MessageDataType.node>;

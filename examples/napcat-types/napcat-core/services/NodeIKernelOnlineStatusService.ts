@@ -3,8 +3,9 @@ export interface NodeIKernelOnlineStatusService {
     removeKernelOnlineStatusListener(listenerId: number): void;
     getShouldShowAIOStatusAnimation(arg: unknown): unknown;
     setReadLikeList(arg: unknown): unknown;
-    getLikeList(arg: unknown): unknown;
-    setLikeStatus(arg: unknown): unknown;
+    getLikeList(arg: unknown): Promise<unknown>;
+    setLikeStatus(arg: unknown): Promise<unknown>;
+    setOnlineStatusLiteBusinessSwitch(enabled: boolean): void;
     getAggregationPageEntrance(): unknown;
     didClickAggregationPageEntrance(): unknown;
     getAggregationGroupModels(): unknown;

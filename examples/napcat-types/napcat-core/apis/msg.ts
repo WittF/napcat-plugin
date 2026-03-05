@@ -93,7 +93,7 @@ export declare class NTQQMsgApi {
     getMsgHistory(peer: Peer, msgId: string, count: number, isReverseOrder?: boolean): Promise<GeneralCallResult & {
         msgList: RawMessage[];
     }>;
-    recallMsg(peer: Peer, msgId: string): Promise<[EventRet: unknown, _msgList: RawMessage[]]>;
+    recallMsg(peer: Peer, msgId: string): Promise<[EventRet: GeneralCallResult, _msgList: RawMessage[]]>;
     PrepareTempChat(toUserUid: string, GroupCode: string, nickname: string): Promise<unknown>;
     getTempChatInfo(chatType: ChatType, peerUid: string): Promise<import("../types").TmpChatInfoApi>;
     sendMsg(peer: Peer, msgElements: SendMessageElement[], timeout?: number): Promise<RawMessage | undefined>;

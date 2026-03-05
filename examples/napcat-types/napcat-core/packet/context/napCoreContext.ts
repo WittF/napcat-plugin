@@ -13,6 +13,14 @@ export declare class NapCoreContext {
     get logger(): import("../../index").LogWrapper;
     get basicInfo(): NapCoreCompatBasicInfo;
     get config(): {
+        bypass?: {
+            hook: boolean;
+            window: boolean;
+            module: boolean;
+            process: boolean;
+            container: boolean;
+            js: boolean;
+        } | undefined;
         fileLog: boolean;
         consoleLog: boolean;
         fileLogLevel: string;
@@ -21,5 +29,6 @@ export declare class NapCoreContext {
         packetServer: string;
         o3HookMode: number;
     };
+    get napi2nativeLoader(): import("../handler/napi2nativeLoader").Napi2NativeLoader;
     sendSsoCmdReqByContend: (cmd: string, data: Buffer) => Promise<unknown>;
 }

@@ -6,6 +6,9 @@ declare enum ProxyType {
 }
 export interface NodeIKernelMSFService {
     getServerTime(): string;
+    getMsfStatus(): number;
+    online(): unknown;
+    offline(): unknown;
     setNetworkProxy(param: {
         userName: string;
         userPwd: string;
@@ -34,5 +37,6 @@ export interface NodeIKernelMSFService {
         accountType: number;
         transInfoMap: Map<string, unknown>;
     }): Promise<Buffer>;
+    onMsfPushForTesting(arg1: unknown, arg2: unknown): unknown;
 }
 export {};

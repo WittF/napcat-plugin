@@ -35,6 +35,6 @@ interface ForwardMsgJsonMetaDetail {
 export declare class ForwardMsgBuilder {
     private static build;
     static fromResId(resId: string): ForwardMsgJson;
-    static fromPacketMsg(resId: string, packetMsg: PacketMsg[], source?: string, news?: ForwardMsgJsonMetaDetail['news'], summary?: string, prompt?: string): ForwardMsgJson;
+    static fromPacketMsg(resId: string, packetMsg: PacketMsg[], source?: string, news?: ForwardMsgJsonMetaDetail['news'], summary?: string, prompt?: string, uuid?: string): ForwardMsgJson;
 }
 export {};

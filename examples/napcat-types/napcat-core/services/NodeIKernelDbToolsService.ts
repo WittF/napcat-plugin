@@ -1,5 +1,5 @@
 export interface NodeIKernelDbToolsService {
-    depositDatabase(...args: unknown[]): unknown;
-    backupDatabase(...args: unknown[]): unknown;
-    retrieveDatabase(...args: unknown[]): unknown;
+    depositDatabase(arg: unknown): unknown;
+    backupDatabase(arg: unknown): unknown;
+    retrieveDatabase(arg: unknown): unknown;
 }

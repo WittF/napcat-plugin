@@ -172,6 +172,14 @@ export declare class OneBotMsgApi {
                 type: "qq" | "group";
             };
         } | {
+            type: OB11MessageDataType.location;
+            data: {
+                content?: string | undefined;
+                title?: string | undefined;
+                lat: string | number;
+                lon: string | number;
+            };
+        } | {
             type: OB11MessageDataType.json;
             data: {
                 config?: {
@@ -180,9 +188,19 @@ export declare class OneBotMsgApi {
                 data: string | {};
             };
         } | {
+            type: OB11MessageDataType.xml;
+            data: {
+                data: string;
+            };
+        } | {
             type: OB11MessageDataType.markdown;
             data: {
                 content: string;
+            };
+        } | {
+            type: OB11MessageDataType.miniapp;
+            data: {
+                data: string;
             };
         } | {
             type: OB11MessageDataType.node;
@@ -371,6 +389,14 @@ export declare class OneBotMsgApi {
                     type: "qq" | "group";
                 };
             } | {
+                type: OB11MessageDataType.location;
+                data: {
+                    content?: string | undefined;
+                    title?: string | undefined;
+                    lat: string | number;
+                    lon: string | number;
+                };
+            } | {
                 type: OB11MessageDataType.json;
                 data: {
                     config?: {
@@ -379,9 +405,19 @@ export declare class OneBotMsgApi {
                     data: string | {};
                 };
             } | {
+                type: OB11MessageDataType.xml;
+                data: {
+                    data: string;
+                };
+            } | {
                 type: OB11MessageDataType.markdown;
                 data: {
                     content: string;
+                };
+            } | {
+                type: OB11MessageDataType.miniapp;
+                data: {
+                    data: string;
                 };
             } | {
                 type: OB11MessageDataType.node;
@@ -569,6 +605,14 @@ export declare class OneBotMsgApi {
                     type: "qq" | "group";
                 };
             } | {
+                type: OB11MessageDataType.location;
+                data: {
+                    content?: string | undefined;
+                    title?: string | undefined;
+                    lat: string | number;
+                    lon: string | number;
+                };
+            } | {
                 type: OB11MessageDataType.json;
                 data: {
                     config?: {
@@ -577,9 +621,19 @@ export declare class OneBotMsgApi {
                     data: string | {};
                 };
             } | {
+                type: OB11MessageDataType.xml;
+                data: {
+                    data: string;
+                };
+            } | {
                 type: OB11MessageDataType.markdown;
                 data: {
                     content: string;
+                };
+            } | {
+                type: OB11MessageDataType.miniapp;
+                data: {
+                    data: string;
                 };
             } | {
                 type: OB11MessageDataType.node;
@@ -774,6 +828,14 @@ export declare class OneBotMsgApi {
                 type: "qq" | "group";
             };
         } | {
+            type: OB11MessageDataType.location;
+            data: {
+                content?: string | undefined;
+                title?: string | undefined;
+                lat: string | number;
+                lon: string | number;
+            };
+        } | {
             type: OB11MessageDataType.json;
             data: {
                 config?: {
@@ -782,9 +844,19 @@ export declare class OneBotMsgApi {
                 data: string | {};
             };
         } | {
+            type: OB11MessageDataType.xml;
+            data: {
+                data: string;
+            };
+        } | {
             type: OB11MessageDataType.markdown;
             data: {
                 content: string;
+            };
+        } | {
+            type: OB11MessageDataType.miniapp;
+            data: {
+                data: string;
             };
         } | {
             type: OB11MessageDataType.node;

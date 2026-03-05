@@ -3,11 +3,12 @@ import { NodeIKernelRecentContactListener } from '../listeners/NodeIKernelRecent
 import { GeneralCallResult } from '../services/common';
 import { FSABRecentContactParams } from '../types/contact';
 export interface NodeIKernelRecentContactService {
-    setGuildDisplayStatus(...args: unknown[]): unknown;
-    setContactListTop(...args: unknown[]): unknown;
-    updateRecentContactExtBufForUI(...args: unknown[]): unknown;
-    upsertRecentContactManually(...args: unknown[]): unknown;
-    enterOrExitMsgList(...args: unknown[]): unknown;
+    setGuildDisplayStatus(arg1: unknown, arg2: unknown): unknown;
+    setContactListTop(peer: Peer, isTop: boolean): unknown;
+    updateRecentContactExtBufForUI(peer: Peer, extBuf: unknown): unknown;
+    upsertRecentContactManually(arg: unknown): unknown;
+    manageContactMergeWindow(arg: unknown): unknown;
+    enterOrExitMsgList(arg: unknown): unknown;
     getRecentContactListSnapShot(count: number): Promise<GeneralCallResult & {
         info: {
             errCode: number;
@@ -26,21 +27,21 @@ export interface NodeIKernelRecentContactService {
             }>;
         };
     }>;
-    clearMsgUnreadCount(...args: unknown[]): unknown;
+    clearMsgUnreadCount(peer: Peer): unknown;
     getRecentContactListSyncLimit(count: number): unknown;
-    jumpToSpecifyRecentContact(...args: unknown[]): unknown;
+    jumpToSpecifyRecentContact(arg: unknown): unknown;
     fetchAndSubscribeABatchOfRecentContact(params: FSABRecentContactParams): unknown;
     addRecentContact(peer: Peer): unknown;
     deleteRecentContacts(peer: Peer): unknown;
     getContacts(peers: Peer[]): Promise<unknown>;
-    setThirdPartyBusinessInfos(...args: unknown[]): unknown;
-    updateGameMsgConfigs(...args: unknown[]): unknown;
-    removeKernelRecentContactListener(listenerid: number): unknown;
+    setThirdPartyBusinessInfos(arg: unknown): unknown;
+    updateGameMsgConfigs(arg: unknown): unknown;
+    removeKernelRecentContactListener(listenerId: number): unknown;
     addKernelRecentContactListener(listener: NodeIKernelRecentContactListener): void;
-    clearRecentContactsByChatType(...args: unknown[]): unknown;
-    upInsertModule(...args: unknown[]): unknown;
-    jumpToSpecifyRecentContactVer2(...args: unknown[]): unknown;
-    deleteRecentContactsVer2(...args: unknown[]): unknown;
+    clearRecentContactsByChatType(chatType: ChatType): unknown;
+    upInsertModule(arg: unknown): unknown;
+    jumpToSpecifyRecentContactVer2(arg: unknown): unknown;
+    deleteRecentContactsVer2(arg: unknown): unknown;
     getRecentContactList(): Promise<unknown>;
     getMsgUnreadCount(): unknown;
     clearRecentContacts(): unknown;

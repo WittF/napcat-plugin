@@ -184,6 +184,14 @@ declare class GetMsg extends OneBotAction<PayloadType, ReturnType> {
                 type: "qq" | "group";
             };
         } | {
+            type: import("index").OB11MessageDataType.location;
+            data: {
+                content?: string | undefined;
+                title?: string | undefined;
+                lat: string | number;
+                lon: string | number;
+            };
+        } | {
             type: import("index").OB11MessageDataType.json;
             data: {
                 config?: {
@@ -192,9 +200,19 @@ declare class GetMsg extends OneBotAction<PayloadType, ReturnType> {
                 data: string | {};
             };
         } | {
+            type: import("index").OB11MessageDataType.xml;
+            data: {
+                data: string;
+            };
+        } | {
             type: import("index").OB11MessageDataType.markdown;
             data: {
                 content: string;
+            };
+        } | {
+            type: import("index").OB11MessageDataType.miniapp;
+            data: {
+                data: string;
             };
         } | {
             type: import("index").OB11MessageDataType.node;

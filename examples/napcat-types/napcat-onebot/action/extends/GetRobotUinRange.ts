@@ -11,7 +11,7 @@ export declare class GetRobotUinRange extends OneBotAction<void, ReturnType> {
         minUin: string;
         maxUin: string;
     }[];
-    payloadSchema: import("@sinclair/typebox").TVoid;
+    payloadSchema: import("@sinclair/typebox").TObject<{}>;
     returnSchema: import("@sinclair/typebox").TArray<import("@sinclair/typebox").TAny>;
     _handle(): Promise<unknown[]>;
 }

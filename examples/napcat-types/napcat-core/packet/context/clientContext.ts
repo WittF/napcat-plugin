@@ -1,6 +1,7 @@
 import { OidbPacket } from '../../packet/transformer/base';
 import { PacketLogger } from '../../packet/context/loggerContext';
 import { NapCoreContext } from '../../packet/context/napCoreContext';
+import { Napi2NativeLoader } from '../../packet/handler/napi2nativeLoader';
 export declare class LogStack {
     private stack;
     private readonly logger;
@@ -16,8 +17,9 @@ export declare class PacketClientContext {
     private readonly napCore;
     private readonly logger;
     private readonly logStack;
+    private readonly napi2nativeLoader;
     private readonly _client;
-    constructor(napCore: NapCoreContext, logger: PacketLogger);
+    constructor(napCore: NapCoreContext, logger: PacketLogger, napi2nativeLoader: Napi2NativeLoader);
     get available(): boolean;
     get clientLogStack(): string;
     init(pid: number, recv: string, send: string): Promise<void>;
