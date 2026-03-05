@@ -1,4 +1,4 @@
-import { NTQQFileApi, NTQQFriendApi, NTQQGroupApi, NTQQMsgApi, NTQQSystemApi, NTQQUserApi, NTQQWebApi, NTQQFlashApi, NTQQOnlineApi } from './apis';
+import { NTQQFileApi, NTQQFriendApi, NTQQGroupApi, NTQQMsgApi, NTQQSystemApi, NTQQUserApi, NTQQWebApi, NTQQFlashApi, NTQQOnlineApi, NTQQDatabaseApi } from './apis';
 import { NTQQCollectionApi } from './apis/collection';
 import { NodeIQQNTWrapperSession, NodeQQNTWrapperUtil, WrapperNodeApi, WrapperSessionInitConfig } from './wrapper';
 import { LogWrapper } from './helper/log';
@@ -9,6 +9,7 @@ import { SelfInfo } from './types';
 import { NapCatConfigLoader } from './helper/config';
 import { NTQQPacketApi } from './apis/packet';
 import { NativePacketHandler } from './packet/handler/client';
+import { Napi2NativeLoader } from './packet/handler/napi2nativeLoader';
 import { TypedEventEmitter } from './packet/handler/typeEvent';
 export * from './wrapper';
 export * from './types/index';
@@ -39,6 +40,8 @@ export declare class NapCatCore {
     selfInfo: SelfInfo;
     util: NodeQQNTWrapperUtil;
     configLoader: NapCatConfigLoader;
+    /** 数据库 passphrase，由 OidbSvcTrpcTcp.0xcde_2 包获取 */
+    dbPassphrase: string | undefined;
     constructor(context: InstanceContext, selfInfo: SelfInfo);
     initCore(): Promise<void>;
     get dataPath(): string;
@@ -53,6 +56,7 @@ export interface InstanceContext {
     readonly basicInfoWrapper: QQBasicInfoWrapper;
     readonly pathWrapper: NapCatPathWrapper;
     readonly packetHandler: NativePacketHandler;
+    readonly napi2nativeLoader: Napi2NativeLoader;
 }
 export interface StableNTApiWrapper {
     FileApi: NTQQFileApi;
@@ -66,4 +70,5 @@ export interface StableNTApiWrapper {
     GroupApi: NTQQGroupApi;
     FlashApi: NTQQFlashApi;
     OnlineApi: NTQQOnlineApi;
+    DatabaseApi: NTQQDatabaseApi;
 }

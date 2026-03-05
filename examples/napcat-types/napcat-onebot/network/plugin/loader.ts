@@ -58,4 +58,9 @@ export declare class PluginLoader {
      * 通过 ID 查找插件目录名
      */
     findPluginDirById(pluginId: string): string | null;
+    /**
+     * 清除插件文件的 require 缓存
+     * 用于确保卸载插件时清理 CJS 模块缓存
+     */
+    clearCache(pluginPath: string): void;
 }

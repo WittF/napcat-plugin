@@ -14,6 +14,7 @@ export declare function getQQPackageInfoPath(exePath?: string, version?: string)
 export declare function getQQVersionConfigPath(exePath?: string): string | undefined;
 export declare function calcQQLevel(level?: QQLevel): number;
 export declare function stringifyWithBigInt(obj: any): string;
+export declare function parseAppidFromMajorV2(nodeMajor: string): string | undefined;
 export declare function parseAppidFromMajor(nodeMajor: string): string | undefined;
 export declare function getAllTags(mirror?: string): Promise<{
     tags: string[];

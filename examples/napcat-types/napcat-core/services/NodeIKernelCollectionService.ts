@@ -1,6 +1,6 @@
 import { GeneralCallResult } from './common';
 export interface NodeIKernelCollectionService {
-    addKernelCollectionListener(...args: unknown[]): void;
+    addKernelCollectionListener(listener: unknown): void;
     removeKernelCollectionListener(listenerId: number): void;
     getCollectionItemList(param: {
         category: number;
@@ -48,21 +48,21 @@ export interface NodeIKernelCollectionService {
             bottomTimeStamp: string;
         };
     }>;
-    getCollectionContent(...args: unknown[]): unknown;
-    getCollectionCustomGroupList(...args: unknown[]): unknown;
-    getCollectionUserInfo(...args: unknown[]): unknown;
-    searchCollectionItemList(...args: unknown[]): unknown;
-    addMsgToCollection(...args: unknown[]): unknown;
-    collectionArkShare(...args: unknown[]): unknown;
-    collectionFileForward(...args: unknown[]): unknown;
-    downloadCollectionFile(...args: unknown[]): unknown;
-    downloadCollectionFileThumbPic(...args: unknown[]): unknown;
-    downloadCollectionPic(...args: unknown[]): unknown;
-    cancelDownloadCollectionFile(...args: unknown[]): unknown;
-    deleteCollectionItemList(...args: unknown[]): unknown;
-    editCollectionItem(...args: unknown[]): unknown;
-    getEditPicInfoByPath(...args: unknown[]): unknown;
-    collectionFastUpload(...args: unknown[]): unknown;
-    editCollectionItemAfterFastUpload(...args: unknown[]): unknown;
-    createNewCollectionItem(...args: unknown[]): unknown;
+    getCollectionContent(arg1: string, arg2: number, arg3: string, arg4: string, arg5: boolean): unknown;
+    getCollectionCustomGroupList(): unknown;
+    getCollectionUserInfo(): unknown;
+    searchCollectionItemList(arg1: string, arg2: unknown): unknown;
+    addMsgToCollection(arg1: unknown, arg2: unknown): unknown;
+    collectionArkShare(arg: unknown): unknown;
+    collectionFileForward(arg1: number, arg2: string, arg3: unknown): unknown;
+    downloadCollectionFile(arg1: string, arg2: string, arg3: unknown, arg4: string): unknown;
+    downloadCollectionFileThumbPic(arg1: string, arg2: string, arg3: unknown, arg4: number): unknown;
+    downloadCollectionPic(arg1: string, arg2: string, arg3: unknown): unknown;
+    cancelDownloadCollectionFile(arg: unknown): unknown;
+    deleteCollectionItemList(arg: unknown): unknown;
+    editCollectionItem(arg1: unknown, arg2: unknown): unknown;
+    getEditPicInfoByPath(arg: unknown): unknown;
+    collectionFastUpload(arg: unknown): unknown;
+    editCollectionItemAfterFastUpload(arg1: unknown, arg2: unknown): unknown;
+    createNewCollectionItem(arg: unknown): unknown;
 }

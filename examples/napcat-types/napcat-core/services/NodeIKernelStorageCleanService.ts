@@ -10,11 +10,11 @@ export interface NodeIKernelStorageCleanService {
     }>;
     addReportData(arg: unknown): unknown;
     reportData(): unknown;
-    getChatCacheInfo(arg1: unknown, arg2: unknown, arg3: unknown, arg4: unknown): unknown;
-    getFileCacheInfo(arg1: unknown, arg2: unknown, arg3: unknown, arg44: unknown, args5: unknown): unknown;
-    clearChatCacheInfo(arg1: unknown, arg2: unknown): unknown;
+    getChatCacheInfo(tableType: number, pageSize: number, order: number, startPosition: number): Promise<unknown>;
+    getFileCacheInfo(fileType: number, restart: boolean, pageSize: number, lastRecord: number, param: unknown): Promise<unknown>;
+    clearChatCacheInfo(chatInfoList: unknown[], clearKeys: number[]): Promise<unknown>;
     clearCacheDataByKeys(keys: Array<string>): Promise<GeneralCallResult>;
-    setSilentScan(is_silent: boolean): unknown;
+    setSilentScan(isSilent: boolean): unknown;
     closeCleanWindow(): unknown;
     clearAllChatCacheInfo(): unknown;
     endScan(arg: unknown): unknown;

@@ -7,7 +7,6 @@ import { IOB11NetworkAdapter } from '../network/adapter';
 export declare class OB11WebSocketServerAdapter extends IOB11NetworkAdapter<WebsocketServerConfig> {
     wsServer?: any;
     wsClients: any[];
-    wsClientsMutex: any;
     private heartbeatIntervalId;
     wsClientWithEvent: any[];
     get isActive(): boolean;

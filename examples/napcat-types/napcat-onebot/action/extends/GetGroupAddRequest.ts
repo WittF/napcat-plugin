@@ -14,7 +14,7 @@ declare const ReturnSchema: import("@sinclair/typebox").TArray<import("@sinclair
 type ReturnType = Static<typeof ReturnSchema>;
 export default class GetGroupAddRequest extends OneBotAction<void, ReturnType> {
     actionName: "get_group_ignore_add_request";
-    payloadSchema: import("@sinclair/typebox").TVoid;
+    payloadSchema: import("@sinclair/typebox").TObject<{}>;
     returnSchema: import("@sinclair/typebox").TArray<import("@sinclair/typebox").TObject<{
         request_id: import("@sinclair/typebox").TNumber;
         invitor_uin: import("@sinclair/typebox").TNumber;

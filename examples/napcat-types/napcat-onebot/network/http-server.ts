@@ -6,7 +6,6 @@ export declare class OB11HttpServerAdapter extends IOB11NetworkAdapter<HttpServe
     private server;
     private wsServer?;
     private wsClients;
-    private wsClientsMutex;
     private heartbeatIntervalId;
     private wsClientWithEvent;
     get isActive(): boolean;

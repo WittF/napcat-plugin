@@ -61,5 +61,5 @@ export declare class NativePacketHandler {
        * 触发监听器 - 按优先级触发: 精确匹配 > cmd匹配 > type匹配 > 全局
        */
     private emitPacket;
-    init(version: string): Promise<boolean>;
+    init(version: string, o3HookMode?: boolean): Promise<boolean>;
 }

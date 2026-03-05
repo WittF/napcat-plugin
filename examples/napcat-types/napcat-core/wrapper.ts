@@ -14,12 +14,34 @@ import { NodeIkernelTestPerformanceService } from './services/NodeIkernelTestPer
 import { NodeIKernelECDHService } from './services/NodeIKernelECDHService';
 import { NodeIO3MiscService } from './services/NodeIO3MiscService';
 import { NodeIKernelFlashTransferService } from './services/NodeIKernelFlashTransferService';
+import { NodeIKernelOnlineStatusService } from './services/NodeIKernelOnlineStatusService';
+import { NodeIKernelBaseEmojiService } from './services/NodeIKernelBaseEmojiService';
+import { NodeIKernelSettingService } from './services/NodeIKernelSettingService';
+import { NodeIKernelFileAssistantService } from './services/NodeIKernelFileAssistantService';
+import { NodeIKernelDbToolsService } from './services/NodeIKernelDbToolsService';
+import { NodeIYellowFaceService } from './services/NodeIYellowFaceService';
+import { NodeIKernelQiDianService } from './services/NodeIKernelQiDianService';
+import { NodeIKernelSkinService } from './services/NodeIKernelSkinService';
+import { NodeIKernelQQPlayService } from './services/NodeIKernelQQPlayService';
+import { NodeIKernelRDeliveryService } from './services/NodeIKernelRDeliveryService';
+import { NodeIKernelRemotingService } from './services/NodeIKernelRemotingService';
+import { NodeIKernelLiteBusinessService } from './services/NodeIKernelLiteBusinessService';
+import { NodeIKernelGroupTabService } from './services/NodeIKernelGroupTabService';
+import { NodeIKernelLockService } from './services/NodeIKernelLockService';
+import { NodeIKernelHandOffService } from './services/NodeIKernelHandOffService';
+import { NodeIKernelMiniAppService } from './services/NodeIKernelMiniAppService';
+import { NodeIKernelPublicAccountService } from './services/NodeIKernelPublicAccountService';
+import { NodeIKernelThirdPartySigService } from './services/NodeIKernelThirdPartySigService';
+import { NodeIKernelUnifySearchService } from './services/NodeIKernelUnifySearchService';
+import { NodeIKernelVasSystemUpdateService } from './services/NodeIKernelVasSystemUpdateService';
+import { NodeIKernelPersonalAlbumService } from './services/NodeIKernelPersonalAlbumService';
+import { NodeIKernelConfigMgrService } from './services/NodeIKernelConfigMgrService';
 export interface NodeQQNTWrapperUtil {
     get(): NodeQQNTWrapperUtil;
     getNTUserDataInfoConfig(): string;
     emptyWorkingSet(n: number): void;
     getSsoCmdOfOidbReq(arg1: number, arg2: number): unknown;
-    getSsoBufferOfOidbReq(...args: unknown[]): unknown;
+    getSsoBufferOfOidbReq(arg1: unknown, arg2: unknown, arg3: unknown): unknown;
     getOidbRspInfo(arg: string): unknown;
     getFileSize(path: string): Promise<number>;
     genFileMd5Buf(arg: string): unknown;
@@ -36,17 +58,17 @@ export interface NodeQQNTWrapperUtil {
     decodeOffLine(arg: string): unknown;
     DecoderRecentInfo(arg: string): unknown;
     getPinyin(arg0: string, arg1: boolean): unknown;
+    getPinyinExt(arg0: string, arg1: boolean): unknown;
     matchInPinyin(arg0: unknown[], arg1: string): unknown;
     makeDirByPath(arg0: string): unknown;
-    emptyWorkingSet(arg0: number): unknown;
     runProcess(arg0: string, arg1: boolean): unknown;
     runProcessArgs(arg0: string, arg1: {
         [key: string]: string;
     }, arg2: boolean): unknown;
     calcThumbSize(arg0: number, arg1: number, arg2: unknown): unknown;
     fullWordToHalfWord(word: string): unknown;
-    getNTUserDataInfoConfig(): unknown;
-    pathIsReadableAndWriteable(path: string): unknown;
+    getNTUserDataInfoConfig(): Promise<string>;
+    pathIsReadableAndWriteable(path: string, type: number): Promise<number>;
     resetUserDataSavePathToDocument(): unknown;
     getSoBuildInfo(): unknown;
     registerCountInstruments(arg0: string, arg1: string[], arg2: number, arg3: number): unknown;
@@ -63,6 +85,15 @@ export interface NodeQQNTWrapperUtil {
     repairNvidiaConfig(): unknown;
     getNvidiaDriverVersion(): unknown;
     isNull(): unknown;
+    deletePath(path: string): unknown;
+    calculateDirectoryTotalSize(path: string): unknown;
+    GetBaseEmojiPathByIds(arg: unknown): unknown;
+    SetMobileBaseEmojiPath(arg0: unknown, arg1: unknown): unknown;
+    setCreateThumbailSupportedFileExtensions(arg0: unknown, arg1: unknown): unknown;
+    setFileDropNativeWindowHide(arg: unknown): unknown;
+    setFileDropWindowNativeWindowHandle(arg: unknown): unknown;
+    startListenFileDragEvent(arg: unknown): unknown;
+    stopAccessingSecurityScopedResource(arg: unknown): unknown;
     createThumbnailImage(serviceName: string, filePath: string, targetPath: string, imgSize: {
         width: number;
         height: number;
@@ -75,7 +106,7 @@ export interface NodeIQQNTStartupSessionWrapper {
     stop(): void;
     start(): void;
     createWithModuleList(uk: unknown): unknown;
-    getSessionIdList(): unknown;
+    getSessionIdList(): Promise<Map<unknown, unknown>>;
 }
 export interface NodeIQQNTWrapperSession {
     getNTWrapperSession(str: string): NodeIQQNTWrapperSession;
@@ -85,6 +116,23 @@ export interface NodeIQQNTWrapperSession {
     init(wrapperSessionInitConfig: WrapperSessionInitConfig, nodeIDependsAdapter: NodeIDependsAdapter, nodeIDispatcherAdapter: NodeIDispatcherAdapter, nodeIKernelSessionListener: NodeIKernelSessionListener): void;
     startNT(session: number): void;
     startNT(): void;
+    close(arg: unknown): void;
+    onLine(arg: unknown): void;
+    offLine(arg: unknown): void;
+    disableIpDirect(arg: unknown): void;
+    getAccountPath(arg: unknown): string;
+    updateTicket(arg: unknown): void;
+    onDispatchPush(arg1: unknown, arg2: unknown): void;
+    onDispatchPushWithJson(arg1: unknown, arg2: unknown): void;
+    onDispatchRequestReply(arg1: unknown, arg2: unknown, arg3: unknown): void;
+    onMsfPush(arg1: unknown, arg2: unknown, arg3: unknown): void;
+    onNetReply(arg1: unknown, arg2: unknown, arg3: unknown, arg4: unknown): void;
+    onSendOidbReply(arg1: unknown, arg2: unknown, arg3: unknown, arg4: unknown, arg5: unknown): void;
+    onSendSSOReply(arg1: unknown, arg2: unknown, arg3: unknown, arg4: unknown, arg5: unknown): void;
+    onUIConfigUpdate(arg1: unknown, arg2: unknown): void;
+    setOnMsfStatusChanged(arg1: unknown, arg2: unknown, arg3: unknown): void;
+    setOnNetworkChanged(arg: unknown): void;
+    setOnWeakNetChanged(arg: unknown): void;
     getBdhUploadService(): unknown;
     getECDHService(): NodeIKernelECDHService;
     getMsgService(): NodeIKernelMsgService;
@@ -105,32 +153,43 @@ export interface NodeIQQNTWrapperSession {
     getSearchService(): NodeIKernelSearchService;
     getFlashTransferService(): NodeIKernelFlashTransferService;
     getDirectSessionService(): unknown;
-    getRDeliveryService(): unknown;
+    getRDeliveryService(): NodeIKernelRDeliveryService;
     getAvatarService(): NodeIKernelAvatarService;
     getFeedChannelService(): unknown;
-    getYellowFaceService(): unknown;
+    getYellowFaceService(): NodeIYellowFaceService;
     getCollectionService(): NodeIKernelCollectionService;
-    getSettingService(): unknown;
-    getQiDianService(): unknown;
-    getFileAssistantService(): unknown;
+    getSettingService(): NodeIKernelSettingService;
+    getQiDianService(): NodeIKernelQiDianService;
+    getFileAssistantService(): NodeIKernelFileAssistantService;
     getGuildService(): unknown;
-    getSkinService(): unknown;
+    getSkinService(): NodeIKernelSkinService;
     getTestPerformanceService(): NodeIkernelTestPerformanceService;
-    getQQPlayService(): unknown;
-    getDbToolsService(): unknown;
+    getQQPlayService(): NodeIKernelQQPlayService;
+    getDbToolsService(): NodeIKernelDbToolsService;
     getUixConvertService(): NodeIKernelUixConvertService;
-    getOnlineStatusService(): unknown;
-    getRemotingService(): unknown;
-    getGroupTabService(): unknown;
+    getOnlineStatusService(): NodeIKernelOnlineStatusService;
+    getRemotingService(): NodeIKernelRemotingService;
+    getGroupTabService(): NodeIKernelGroupTabService;
     getGroupSchoolService(): unknown;
-    getLiteBusinessService(): unknown;
+    getLiteBusinessService(): NodeIKernelLiteBusinessService;
     getGuildMsgService(): unknown;
-    getLockService(): unknown;
+    getLockService(): NodeIKernelLockService;
     getMSFService(): NodeIKernelMSFService;
     getGuildHotUpdateService(): unknown;
     getAVSDKService(): unknown;
     getRecentContactService(): NodeIKernelRecentContactService;
-    getConfigMgrService(): unknown;
+    getConfigMgrService(): NodeIKernelConfigMgrService;
+    getBaseEmojiService(): NodeIKernelBaseEmojiService;
+    getHandOffService(): NodeIKernelHandOffService;
+    getMiniAppService(): NodeIKernelMiniAppService;
+    getPublicAccountService(): NodeIKernelPublicAccountService;
+    getThirdPartySigService(): NodeIKernelThirdPartySigService;
+    getUnifySearchService(): NodeIKernelUnifySearchService;
+    getVasSystemUpdateService(): NodeIKernelVasSystemUpdateService;
+    getPersonalAlbumService(): NodeIKernelPersonalAlbumService;
+    getGProGuildMsgService(): unknown;
+    getFileBridgeHostService(): unknown;
+    getWiFiPhotoClientService(): unknown;
 }
 export interface EnginInitDesktopConfig {
     base_path_prefix: string;
@@ -153,6 +212,10 @@ export interface EnginInitDesktopConfig {
 export interface NodeIQQNTWrapperEngine {
     get(): NodeIQQNTWrapperEngine;
     initWithDeskTopConfig(config: EnginInitDesktopConfig, nodeIGlobalAdapter: NodeIGlobalAdapter): void;
+    initWithMobileConfig(config: unknown, nodeIGlobalAdapter: NodeIGlobalAdapter): void;
+    initLog(arg: unknown): void;
+    setLogLevel(arg: unknown): void;
+    onSendSSOReply(arg1: unknown, arg2: unknown, arg3: unknown, arg4: unknown, arg5: unknown): void;
 }
 export interface WrapperNodeApi {
     NodeIO3MiscService: NodeIO3MiscService;

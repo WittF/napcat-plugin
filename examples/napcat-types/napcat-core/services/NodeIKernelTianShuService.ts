@@ -1,5 +1,5 @@
 export interface NodeIKernelTianShuService {
     addKernelTianShuListener(listener: unknown): number;
     removeKernelTianShuListener(listenerId: number): void;
-    reportTianShuNumeralRed(...args: unknown[]): unknown;
+    reportTianShuNumeralRed(arg: unknown): unknown;
 }

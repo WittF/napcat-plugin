@@ -10,7 +10,7 @@ declare const ReturnSchema: import("@sinclair/typebox").TArray<import("@sinclair
 type ReturnType = Static<typeof ReturnSchema>;
 export declare class GetUnidirectionalFriendList extends OneBotAction<void, ReturnType> {
     actionName: "get_unidirectional_friend_list";
-    payloadSchema: import("@sinclair/typebox").TVoid;
+    payloadSchema: import("@sinclair/typebox").TObject<{}>;
     returnSchema: import("@sinclair/typebox").TArray<import("@sinclair/typebox").TObject<{
         uin: import("@sinclair/typebox").TNumber;
         uid: import("@sinclair/typebox").TString;
